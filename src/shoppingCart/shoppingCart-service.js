@@ -27,6 +27,12 @@ const ShoppingCartService = {
             .from('shopping_cart')
             .where({id})
             .delete()
+    },
+
+    deleteEntireCart(knex){
+        return knex
+            .from('shopping_cart')
+            .delete('*')
     }
 }
 

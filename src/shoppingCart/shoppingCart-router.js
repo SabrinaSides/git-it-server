@@ -48,6 +48,15 @@ shoppingCartRouter
           .json(item);
       })
       .catch(next);
+  })
+  .delete((req, res, next) => {
+    const knexInstance = req.app.get('db');
+
+    ShoppingCartService.deleteEntireCart(knexInstance)
+      .then(() => {
+        res.status(204).end();
+      })
+      .catch(next);
   });
 
 shoppingCartRouter

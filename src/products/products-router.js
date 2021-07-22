@@ -20,12 +20,12 @@ productsRouter
     })
 
 productsRouter
-    .route('/:productName')
+    .route('/:productId')
     .all((req, res, next) => {
         knexInstance = req.app.get('db')
-        const {productName} = req.params
+        const {productId} = req.params
 
-        ProductsService.getByProductName(knexInstance, productName)
+        ProductsService.getByProductName(knexInstance, productId)
             .then(product => {
                 if(!product){
                 return res.status(404).json({

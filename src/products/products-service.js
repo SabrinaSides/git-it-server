@@ -5,10 +5,10 @@ const ProductsService = {
             .select('*')
     },
 
-    getByProductName(knex, productname){
+    getByProductName(knex, id){
         return knex
             .from('products')
-            .where({productname})
+            .where({id})
             .first()
     }
 }

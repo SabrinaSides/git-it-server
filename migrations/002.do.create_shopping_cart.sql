@@ -5,5 +5,6 @@ CREATE TABLE shopping_cart(
     category TEXT NOT NULL,
     img TEXT NOT NULL,
     price DECIMAL(6,2) NOT NULL,
-    productinfo TEXT NOT NULL
+    productinfo TEXT NOT NULL,
+    size TEXT
 );

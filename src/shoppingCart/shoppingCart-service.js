@@ -5,14 +5,29 @@ const ShoppingCartService = {
             .select('*')
     },
 
-    // insert 
+    getById(knex, id){
+        return knex.from('shopping_cart')
+                .select('*')
+                .where({ id })
+                .first()
+    },
 
-    // getByProductName(knex, productname){
-    //     return knex
-    //         .from('shopping_cart')
-    //         .where({productname})
-    //         .first()
-    // }
+    insertCartItem(knex, newItem){
+        return knex
+            .insert(newItem)
+            .into('shopping_cart')
+            .returning('*')
+            .then(rows => {
+                return rows[0]
+            })
+    },
+
+    deleteCartItem(knex, id){
+        return knex
+            .from('shopping_cart')
+            .where({id})
+            .delete()
+    }
 }
 
 module.exports = ShoppingCartService;

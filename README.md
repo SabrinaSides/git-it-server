@@ -19,6 +19,7 @@ The GitIt API utilizes GET, POST and DELETE endpoints along with the correspondi
 ## API Endpoints
 
 **/api/products:** GET
+
 **/api/shoppingCart:** GET, POST, DELETE
 
 [View the Client Repo](https://github.com/SabrinaSides/git-it-client)

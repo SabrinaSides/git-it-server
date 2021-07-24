@@ -1,12 +1,8 @@
 const express = require('express');
-// const xss = require('xss')
 const path = require('path');
 const ShoppingCartService = require('./shoppingCart-service');
-
 const shoppingCartRouter = express.Router();
 const jsonParser = express.json();
-
-//const serializeShoppingCart =
 
 shoppingCartRouter
   .route('/')

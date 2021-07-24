@@ -1,7 +1,7 @@
 const knex = require('knex');
 const app = require('../src/app');
 const { makeShoppingCartArray } = require('./shoppingCart.fixtures');
-const { makeProductsArray } = require('./products.fixtures')
+const { makeProductsArray } = require('./products.fixtures');
 
 describe('ShoppingCart Endpoints', () => {
   let db;
@@ -17,7 +17,7 @@ describe('ShoppingCart Endpoints', () => {
 
   after('disconnect from db', () => db.destroy());
 
-  const testProducts = makeProductsArray()
+  const testProducts = makeProductsArray();
 
   before('insert products into products table', () => {
     return db.into('products').insert(testProducts);
@@ -46,7 +46,9 @@ describe('ShoppingCart Endpoints', () => {
       });
 
       it('responds with 200 and all of the items', () => {
-        return supertest(app).get('/api/shoppingCart').expect(200, testShoppingCart);
+        return supertest(app)
+          .get('/api/shoppingCart')
+          .expect(200, testShoppingCart);
       });
     });
   });
@@ -59,7 +61,7 @@ describe('ShoppingCart Endpoints', () => {
           .get(`/api/shoppingCart/${productId}`)
           .expect(404, { error: { message: `Item doesn't exist` } });
       });
-    })
+    });
 
     context('Given there are items in the shopping cart', () => {
       const testShoppingCart = makeShoppingCartArray();
@@ -83,13 +85,13 @@ describe('ShoppingCart Endpoints', () => {
 
     it('creates an item, responding with 201 and the new item', () => {
       const newItem = {
-            productid: 1,
-            productname: 'Java',
-            category: 'tshirts',
-            img: 'https://getitcapstone.s3.us-east-2.amazonaws.com/images/java.jpg',
-            price: "19.99",
-            productinfo: 'A great Java-themed shirt',
-            size: 'Small'
+        productid: 1,
+        productname: 'Java',
+        category: 'tshirts',
+        img: 'https://getitcapstone.s3.us-east-2.amazonaws.com/images/java.jpg',
+        price: '19.99',
+        productinfo: 'A great Java-themed shirt',
+        size: 'Small',
       };
       return supertest(app)
         .post('/api/shoppingCart')
@@ -100,10 +102,14 @@ describe('ShoppingCart Endpoints', () => {
           expect(res.body.productname).to.eql(newItem.productname);
           expect(res.body.category).to.eql(newItem.category);
           expect(res.body).to.have.property('id');
-          expect(res.headers.location).to.eql(`/api/shoppingCart/${res.body.id}`);
+          expect(res.headers.location).to.eql(
+            `/api/shoppingCart/${res.body.id}`
+          );
         })
         .then((res) =>
-          supertest(app).get(`/api/shoppingCart/${res.body.id}`).expect(res.body)
+          supertest(app)
+            .get(`/api/shoppingCart/${res.body.id}`)
+            .expect(res.body)
         );
     });
   });
@@ -119,7 +125,7 @@ describe('ShoppingCart Endpoints', () => {
     });
 
     context('Given there are items in the cart', () => {
-        const testShoppingCart = makeShoppingCartArray();
+      const testShoppingCart = makeShoppingCartArray();
 
       beforeEach('insert items', () => {
         return db.into('shopping_cart').insert(testShoppingCart);

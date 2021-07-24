@@ -16,13 +16,18 @@ The GitIt API utilizes GET, POST and DELETE endpoints along with the correspondi
 
 **Server:** Node, Express, PostgreSQL
 
+[View the Client Repo](https://github.com/SabrinaSides/git-it-client)
+
 ## API Endpoints
 
 **/api/products:** GET
+<<<<<<< HEAD
 
 **/api/shoppingCart:** GET, POST, DELETE
+=======
+>>>>>>> 31abd8a8196913750dbc789ecfd596ee2589d35e
 
-[View the Client Repo](https://github.com/SabrinaSides/git-it-client)
+**/api/shoppingCart:** GET, POST, DELETE
 
 ## Screenshots
 

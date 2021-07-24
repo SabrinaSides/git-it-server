@@ -1,27 +1,42 @@
-# Express Boilerplate!
+# Git It
 
-This is a boilerplate project used for starting new projects!
+## Summary
 
-## Set up
+Git It is a full-stack PERN app designed as a mock coding-related merch site. The user is able to view products, add and delete items from their shopping cart and complete a demo checkout process.
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+The GitIt API utilizes GET, POST and DELETE endpoints along with the corresponding postgreSQL databases. The app's client-side was also written by me and can be viewed [here](https://github.com/SabrinaSides/git-it-client).
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+## See the App Live
 
-## Scripts
+[Check It Out Here](https://git-it-sabrinasides.vercel.app/)
 
-Start the application `npm start`
+## Tech Stack
 
-Start nodemon for the application `npm run dev`
+**Client:** React, JavaScript, CSS
 
-Run the tests `npm test`
+**Server:** Node, Express, PostgreSQL
 
-## Deploying
+## API Endpoints
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's main branch.
-# git-it-server
+**/api/products:** GET
+**/api/shoppingCart:** GET, POST, DELETE
+
+[View the Client Repo](https://github.com/SabrinaSides/git-it-client)
+
+## Screenshots
+
+### Home Page
+
+![Home Page](src/screenshots/homepage.png)
+
+### Category Page: Mugs
+
+![Category Page](src/screenshots/category-page.png)
+
+### Product Page
+
+![Product Page](src/screenshots/product-page.png)
+
+### Shopping Cart
+
+![Shopping Cart](src/screenshots/shopping-cart.png)

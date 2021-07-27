@@ -114,6 +114,26 @@ describe('ShoppingCart Endpoints', () => {
     });
   });
 
+  describe('DELETE /api/shoppingCart', () => {
+    context('Given there are items in the cart', () => {
+      const testShoppingCart = makeShoppingCartArray();
+
+      beforeEach('insert items', () => {
+        return db.into('shopping_cart').insert(testShoppingCart);
+      });
+
+      it('responds with 204 and removes all the items', () => {
+        const expectedItems = []
+        return supertest(app)
+          .delete(`/api/shoppingCart`)
+          .expect(204)
+          .then((res) =>
+            supertest(app).get('/api/shoppingCart').expect(expectedItems)
+          );
+      });
+    });
+  });
+
   describe('DELETE /api/shoppingCart/:id', () => {
     context('Given no items', () => {
       it('responds with 404', () => {

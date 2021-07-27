@@ -20,9 +20,21 @@ The GitIt API utilizes GET, POST and DELETE endpoints along with the correspondi
 
 ## API Endpoints
 
-**/api/products:** GET
+### Product/Merch Related
 
-**/api/shoppingCart:** GET, POST, DELETE
+This API allows you to retrieve the products/merch available for purchase.
+
+Show Products: `GET /api/products`
+Show Specific Product: `GET /api/products/:productId`
+
+### Shopping Cart Related
+
+This API allows you to add products to the shopping cart and delete them.
+
+Show Items Added to Shopping Cart: `GET /api/shoppingCart`
+Add Item to the Shopping Cart: `POST /api/shoppingCart`
+Delete Entire Shopping Cart: `DELETE /api/shoppingCart`
+Delete Specific Shopping Cart Item: `DELETE /api/shoppingCart/:cartItemId`
 
 ## Screenshots
 

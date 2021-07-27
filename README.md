@@ -22,7 +22,7 @@ The GitIt API utilizes GET, POST and DELETE endpoints along with the correspondi
 
 ### Product/Merch Related
 
-This API allows you to retrieve the products/merch available for purchase.
+**This API allows you to retrieve the products/merch available for purchase.**
 
 Show Products: `GET /api/products`
 
@@ -30,7 +30,7 @@ Show Specific Product: `GET /api/products/:productId`
 
 ### Shopping Cart Related
 
-This API allows you to add products to the shopping cart and delete them.
+**This API allows you to add products to the shopping cart and delete them.**
 
 Show Items Added to Shopping Cart: `GET /api/shoppingCart`
 
